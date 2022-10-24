@@ -1,0 +1,19 @@
+max, min
+Recovery(min)
+  clr_bar    ____-------(async deasserted)
+  clk        _______----(clock)
+             -->|   |<----
+             
+Removal(min)
+  clr_bar    __________-------(async deasserted)
+  clk        _____------------(clock)
+              -->|     |<----
+              
+min clock pulse width
+
+Clock Gating
+  ensure glitch-free
+
+report_analysis_coverage
+check_timing
+
