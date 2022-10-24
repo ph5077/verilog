@@ -1,0 +1,48 @@
+# CLOCKS
+create_clock
+create_generated_clock
+
+set_ideal_network [get_ports clk]
+set_clock_transition 0.2 [get_clocks my_clk]
+set_clock_uncertainty 0.2 [get_clocks my_clk]
+set_propagated_clock 0.2 [get_clocks my_clk]
+
+# IO
+set_input_delay 0.8 -clock clk [remove_from_collection [all_inputs] [get_ports clk]]
+set_output_delay 2.5 -clock clk [all_outputs]
+## OR
+set_max_delay 5 -from [remove_from_collection [all_inputs] [get_ports clk]]
+set_max_delay 5 -to [all_outputs]
+## Input transition modeling
+set_driving_cell -cell [get_lib_cells MY_LIB/INV4] -pin Z \
+[remove_from_collection [all_inputs] [get_ports clk]]
+## Output cap
+set_load $CIN_OF_INP [all_outputs]
+## Virtual clock ???
+
+## Timing Exception
+set_false_path -through [get_pins mux1/I0] -through [get_pins mux2/I0]
+set_false_path -from F1/CP -to F2/D ## CDC syncnizer
+## for CDC
+set_clock_groups -logically_exclusive \
+  -group [get_clocks C1] -group [get_clocks C2]
+## multi cycle path  
+set_multicycle_path -setup -from F1/C -to F2/D 2
+set_multicycle_path -setup -from F1/C -to F2/D 1
+
+## CASE Analysis
+set_case_analysis 0 [get_ports TEST_MODE]
+
+## DRV
+set_max_transition
+set_max_capacitance
+set_max_fanout
+
+## Advanced: OCV, SI
+
+
+
+
+
+
+
