@@ -1,0 +1,27 @@
+// MACRO deine
+// ERROR
+`define MSGE(A) \
+  do begin \
+    `ifdef DIS_ERR \
+    `else \
+      `ifdef DSPH \
+        $display("%m: ", "ERROR: %s", $sformat A, "   @time %t", $time); \
+      `else \
+        $display("ERROR: %s", $sformat A); \
+      `endif \
+    `endif \
+    errors=errors+1; \
+  end while(0)
+
+// INFO
+`define MSGI(A) \
+  do begin \
+    `ifdef DIS_INFO \
+    `else \
+      `ifdef DSPH \
+        $display("%m: ", "INFO: %s", $sformat A, "   @time %t", $time); \
+      `else \
+        $display("INFO: %s", $sformat A); \
+      `endif \
+    `endif \
+  end while(0)
