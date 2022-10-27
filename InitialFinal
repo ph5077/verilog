@@ -1,0 +1,8 @@
+// The final procedure is like an initial procedure, defining a procedural block of statements,
+// except that it occurs at the end of simulation time and executes without delays.
+// A final procedure is typically used to display statistical information about the simulation.
+//
+final begin
+  $display("time %0t:INFO:   Warnings=%0d, Errors=%0d", $time, warnings, errors);
+end  
+
