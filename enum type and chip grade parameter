@@ -1,0 +1,11 @@
+typedef enum {SG100, SG200, SG300, SG400, NUM_SG} SG_T;  // 0,1,2....#
+
+`ifdef T400
+  parameter SG_T chip_sg = SG400;
+`elsif T300
+  parameter SG_T chip_sg = SG300;
+`elsif T200
+  parameter SG_T chip_sg = SG200;
+`else   // default T100
+  parameter SG_T chip_sg = SG100;
+`endif
