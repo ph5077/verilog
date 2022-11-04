@@ -14,5 +14,10 @@ SDF3.0 setuphold supports negative timing check, setup or hold not
 
 Pay attention to if timing check matches btw verilog model, SDF.
 
-
++maxdelays
++typdelays
++mindelays
+      Specifies using the maximum timing delays in the min:typ:max delay triplets 
+      when compiling the SDF file. 
+      The mtm_spec argument to the $sdf_annotate system task overrides this option.
 
