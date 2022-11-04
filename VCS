@@ -1,0 +1,18 @@
+Enabling Negative Timing Checks
+      To use a negative timing check you must include the +neg_tchk compile-time option
+      when you compile your design. If you omit this option, VCS changes all negative limits to 0.
+      
+The +overlap compile-time option enables accurate simulation of multiple violation windows 
+for the same two signals when the following conditions occur:
+      • The violation windows are specified with negative delay values that are backannotated from an SDF file.
+      • The violation windows do not converge or overlap.
+      
+The default behavior of VCS when these conditions are met is to replace the negative delay values with zeros
+so that the violation windows overlap.
+
+SDF3.0 setuphold supports negative timing check, setup or hold not
+
+Pay attention to if timing check matches btw verilog model, SDF.
+
+
+
