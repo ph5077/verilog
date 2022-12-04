@@ -1,0 +1,38 @@
+1.0 VCS Dynamic Race detection
+
+  The -race compile-time option enables race detection for your 
+  entire design. 
+  
+  The -racecd compile-time option enables race detection for the 
+  part of your design that is enclosed between the ‘race and 
+  ‘endrace compiler directives.
+  
+  REPORT：race.out and race.unique.out files. 
+
+  race.out file：a line for all race conditions throughout the simulation.
+  If VCS executes two different statements in the same time step for several times
+  the race.out file contains a line for each of these times. 
+
+  race.unique.out file：contains only the lines for unique race conditions
+  which have not been reported in a previous line.
+  
+  NOTES:
+  The race.unique.out is automatically created by the PostRace.pl Perl script
+  This script needs a perl5 interpreter.
+  
+  
+  Post-Processing the Report：PostRace.pl Perl script
+  vcdiff：find differences of two VCD files for mismatch with the 
+      directory：vcs_install_dir/bin 
+      
+2.0 The Static Race Detection Tool
+
+  +race=all compile-time option to start the static race detection tool
+  for only pure Verilog constructs
+  
+  File：race.out.static
+  
+3.0 Race Detection Tool to Identify Race between Clock and Data
+  -hsopt=racedetect
+  cat hsRaceInfo.db
+  
