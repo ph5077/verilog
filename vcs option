@@ -1,0 +1,33 @@
+1.0 VCS analyse
+
+-v library_file
+Specifies a Verilog library file to search for module definitions 
+
+-y library_directory
+% vlogan -y rev1 -y rev2 -y rev3 +libext+.v top.
+
++libext+extension
+
++lint=[no]ID|none|all
+
++nowarnTFMPC
+Suppress the Too few module port connections warning 
+messages during Verilog Compilation
+
++warn
+Enables or disables warning messages.
+
+-sverilog
++define+macro
++systemverilogext+ext
++verilog1995ext+ext
++verilog2001ext+ext
+
+2.0 Elaboration
+vcs [elab_options] [libname.]design_unit
+
+-full64
+-file filename
+  Specifies a file containing elaboration options.
+-R
+  Runs the executable file immediately after VCS links it together.
